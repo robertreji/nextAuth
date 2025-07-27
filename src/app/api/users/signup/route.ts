@@ -14,7 +14,7 @@ export async function POST(request :NextRequest)
        const user =  await User.find({email})
         console.log("user :",user)
        if(user.length>0) return NextResponse.json({res:"user alreadyexists"})
-        const salt = await bcryptjs.genSalt(10)
+      const salt = await bcryptjs.genSalt(10)
        const hashedPass = await bcryptjs.hash(password,salt)
 
        const newUser = new  User({
